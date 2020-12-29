@@ -52,7 +52,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @TeleOp(name="Pushbot: Testing Again 3", group="Pushbot")
-@Disabled
+//@Disabled
 public class Test_SourceTree extends OpMode{
 
     /* Declare OpMode members. */
