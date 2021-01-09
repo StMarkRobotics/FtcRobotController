@@ -53,7 +53,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
@@ -63,19 +63,45 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
+        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+            telemetry.addData("Path", "Part Two: Strafing to starter stack and checking height.", runtime.seconds());
+            telemetry.update();
+        }
 
-        // Step 3: Check starter stack for how many rings there are.
-        // Copied from other file, not adapted for this program
+        // Step 3: Check starter stack for how many rings there are, then store the distance in a variable
         telemetry.addData("deviceName",sensorRange.getDeviceName() );
-        telemetry.addData("range", String.format("%.01f cm", sensorRange.getDistance(DistanceUnit.CM)));
         telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
         telemetry.update();
+        //float stack = sensorRange.getDistance(DistanceUnit.INCH)
 
+        // Step 4: Strafe back to the wobble thing.
+        robot.FrontLeft.setPower(-FORWARD_SPEED);
+        robot.FrontRight.setPower(-FORWARD_SPEED);
+        robot.RearLeft.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED);
+        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+            telemetry.addData("Path", "Part Three: Strafing back. ", runtime.seconds());
+            telemetry.update();
+        }
+                //change these to the variable that stores the distance
         if ( sensorRange.getDistance(DistanceUnit.INCH) >=5.5) {
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
+            while (opModeIsActive() && (runtime.seconds() < 0.15)) {
+                telemetry.addData("Path", "Part Four: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
+                telemetry.update();
+            }
             robot.FrontLeft.setPower(FORWARD_SPEED);
             robot.FrontRight.setPower(FORWARD_SPEED);
-            robot.RearLeft.setPower(-FORWARD_SPEED);
-            robot.RearRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(FORWARD_SPEED);
+            robot.RearRight.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 0.75)) {
+                telemetry.addData("Path", "Part Five: Starter Stack 0- Pushing wobble goal to target zone A.", runtime.seconds());
+                telemetry.update();
+            }
         }
          else if (sensorRange.getDistance(DistanceUnit.INCH) >= 4.4 )  {
             robot.FrontLeft.setPower(FORWARD_SPEED);
@@ -90,12 +116,6 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(-FORWARD_SPEED);
         }
 
-
-        // Step 4: After checking starter stack, strafe back to wobble thing.
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
-        robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
 
         // ...Last Step:  Stop.
         robot.FrontLeft.setPower(0);
