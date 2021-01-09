@@ -51,14 +51,14 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Testing Again 3", group="Pushbot")
+@TeleOp(name="StMarkTest", group="Pushbot")
 //@Disabled
-public class Test_SourceTree extends OpMode{
+public class StMarkTeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    HardwareStMarkBot robot       = new HardwareStMarkBot(); // use the class created to define a Pushbot's hardware
+    //double          clawOffset  = 0.0 ;                  // Servo mid position
+    //final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -100,9 +100,11 @@ public class Test_SourceTree extends OpMode{
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
-        robot.leftDrive.setPower(left);
-        robot.rightDrive.setPower(right);
-
+        robot.FrontLeft.setPower(left);
+        robot.RearLeft.setPower(left);
+        robot.FrontRight.setPower(right);
+        robot.RearRight.setPower(right);
+/*
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
@@ -122,8 +124,10 @@ public class Test_SourceTree extends OpMode{
         else
             robot.leftArm.setPower(0.0);
 
+ */
+
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+        //telemetry.addData("claw",  "Offset = %.2f", clawOffset);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
     }
