@@ -71,7 +71,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
         telemetry.update();
         //create variable
-        //float stack = sensorRange.getDistance(DistanceUnit.INCH)
+        float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
 
         // Step 4: Strafe back to the wobble thing.
         robot.FrontLeft.setPower(-FORWARD_SPEED);
@@ -82,9 +82,9 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
         }
-        //change these from the distance sensor's measure to the variable that stored the distance
+
         //Depending on what the height of the starter stack was, this will do different things
-        if ( sensorRange.getDistance(DistanceUnit.INCH) >=5.5) {
+        if (stack >=5.5) {
             // Step 5: Turn towards target zone A.
             robot.FrontLeft.setPower(TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -105,7 +105,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.update();
             }
         }
-         else if (sensorRange.getDistance(DistanceUnit.INCH) >= 4.4 ) {
+         else if (stack >= 4.4 ) {
             // Step 5: Turn towards target zone B.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(TURN_SPEED);
