@@ -1,6 +1,4 @@
-//Imports
 package org.firstinspires.ftc.teamcode;
-
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -12,8 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp(name = "Sensor: REV2mDistance", group = "Sensor")
 
 /**
- * This file illustrates the concept of driving a path based on time.
- * It uses the common Pushbot hardware class to define the drive on the robot.
+ * This file uses the common Pushbot hardware class to define the drive on the robot.
  * The code is structured as a LinearOpMode.
  * The code assumes that you do NOT have encoders on the wheels,
  *   otherwise you would use: PushbotAutoDriveByEncoder;
@@ -47,7 +44,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        // Step 1:  Drive forward for .25 seconds to get off the line and move wobble thing.
+        // Step 1: Drive forward for .25 seconds to get off the line and move wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
@@ -64,14 +61,16 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
-            telemetry.addData("Path", "Part Two: Strafing to starter stack and checking height.", runtime.seconds());
+            telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
 
         // Step 3: Check starter stack for how many rings there are, then store the distance in a variable
         telemetry.addData("deviceName",sensorRange.getDeviceName() );
+        telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
         telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
         telemetry.update();
+        //create variable
         //float stack = sensorRange.getDistance(DistanceUnit.INCH)
 
         // Step 4: Strafe back to the wobble thing.
@@ -80,40 +79,74 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
-            telemetry.addData("Path", "Part Three: Strafing back. ", runtime.seconds());
+            telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
         }
-                //change these to the variable that stores the distance
+        //change these from the distance sensor's measure to the variable that stored the distance
+        //Depending on what the height of the starter stack was, this will do different things
         if ( sensorRange.getDistance(DistanceUnit.INCH) >=5.5) {
+            // Step 5: Turn towards target zone A.
             robot.FrontLeft.setPower(TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
-            while (opModeIsActive() && (runtime.seconds() < 0.15)) {
-                telemetry.addData("Path", "Part Four: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
+            while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+                telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
             }
+            // Step 6: Push wobble thing to target zone A.
             robot.FrontLeft.setPower(FORWARD_SPEED);
             robot.FrontRight.setPower(FORWARD_SPEED);
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.75)) {
-                telemetry.addData("Path", "Part Five: Starter Stack 0- Pushing wobble goal to target zone A.", runtime.seconds());
+                telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
         }
-         else if (sensorRange.getDistance(DistanceUnit.INCH) >= 4.4 )  {
+         else if (sensorRange.getDistance(DistanceUnit.INCH) >= 4.4 ) {
+            // Step 5: Turn towards target zone B.
+            robot.FrontLeft.setPower(-TURN_SPEED);
+            robot.FrontRight.setPower(TURN_SPEED);
+            robot.RearLeft.setPower(-TURN_SPEED);
+            robot.RearRight.setPower(TURN_SPEED);
+            while (opModeIsActive() && (runtime.seconds() < 0.15)) {
+                telemetry.addData("Path", "Part Six: Starter Stack 2- Turning towards target zone B. ", runtime.seconds());
+                telemetry.update();
+            }
+            // Step 6: Push wobble thing to target zone B.
             robot.FrontLeft.setPower(FORWARD_SPEED);
             robot.FrontRight.setPower(FORWARD_SPEED);
-            robot.RearLeft.setPower(-FORWARD_SPEED);
-            robot.RearRight.setPower(-FORWARD_SPEED);
-        }
+            robot.RearLeft.setPower(FORWARD_SPEED);
+            robot.RearRight.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 3)) {
+                telemetry.addData("Path", "Part Six: Starter Stack 2- Pushing wobble thing to target zone B.", runtime.seconds());
+                telemetry.update();
+            }
+         }
          else {
+            // Step 5: Turn towards target zone C.
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
+            while (opModeIsActive() && (runtime.seconds() < 0.07)) {
+                telemetry.addData("Path", "Part Five: Starter Stack 4- Turning towards target zone C. ", runtime.seconds());
+                telemetry.update();
+            }
+            // Step 6: Push wobble thing to target zone C.
             robot.FrontLeft.setPower(FORWARD_SPEED);
             robot.FrontRight.setPower(FORWARD_SPEED);
-            robot.RearLeft.setPower(-FORWARD_SPEED);
-            robot.RearRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(FORWARD_SPEED);
+            robot.RearRight.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 4.5)) {
+                telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
+                telemetry.update();
+            }
+
         }
 
 
@@ -138,7 +171,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }  */
-       /* //Turning Code if needed
+       /* //Turning right Code if needed
         robot.FrontLeft.setPower(-TURN_SPEED);
         robot.FrontRight.setPower(TURN_SPEED);
         robot.RearLeft.setPower(-TURN_SPEED);
