@@ -60,17 +60,21 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
+        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
 
         // Step 3: Check starter stack for how many rings there are, then store the distance in a variable
-        telemetry.addData("deviceName",sensorRange.getDeviceName() );
-        telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
-        telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
-        telemetry.update();
-        //create variable
+        runtime.reset()
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
+            telemetry.addData("deviceName",sensorRange.getDeviceName() );
+            telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
+            telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
+            telemetry.update();
+
+        //Creates variable to store distance
         float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
 
         // Step 4: Strafe back to the wobble thing.
@@ -78,6 +82,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
+        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
@@ -90,6 +95,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.FrontRight.setPower(-TURN_SPEED);
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
+            runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.25)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
@@ -111,6 +117,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.FrontRight.setPower(TURN_SPEED);
             robot.RearLeft.setPower(-TURN_SPEED);
             robot.RearRight.setPower(TURN_SPEED);
+            runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.15)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 2- Turning towards target zone B. ", runtime.seconds());
                 telemetry.update();
@@ -132,6 +139,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.FrontRight.setPower(-TURN_SPEED);
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
+            runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.07)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 4- Turning towards target zone C. ", runtime.seconds());
                 telemetry.update();
