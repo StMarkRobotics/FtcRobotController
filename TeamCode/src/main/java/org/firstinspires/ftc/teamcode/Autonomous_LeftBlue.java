@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@TeleOp(name = "Sensor: REV2mDistance", group = "Sensor")
+//@TeleOp(name = "Sensor: REV2mDistance", group = "Sensor")
 
 /**
  * This file uses the common Pushbot hardware class to define the drive on the robot.
@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *   otherwise you would use: PushbotAutoDriveByEncoder;
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Autonomous", group="Pushbot")
 //@Disabled
 public class Autonomous_LeftBlue extends LinearOpMode {
     private DistanceSensor sensorRange;
