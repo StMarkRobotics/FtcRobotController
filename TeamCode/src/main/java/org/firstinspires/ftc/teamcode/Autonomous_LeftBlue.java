@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *   otherwise you would use: PushbotAutoDriveByEncoder;
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Autonomous", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous_LeftBlue", group="Pushbot")
 //@Disabled
 public class Autonomous_LeftBlue extends LinearOpMode {
     private DistanceSensor sensorRange;
@@ -25,8 +25,8 @@ public class Autonomous_LeftBlue extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
 
-    static final double     FORWARD_SPEED = 0.6;
-    static final double     TURN_SPEED    = 0.5;
+    static final double     FORWARD_SPEED = 0.35;
+    static final double     TURN_SPEED    = 0.35;
 
     @Override
     public void runOpMode() {
@@ -50,7 +50,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
@@ -61,18 +61,23 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
 
         // Step 3: Check starter stack for how many rings there are, then store the distance in a variable
-        runtime.reset()
+        robot.FrontLeft.setPower(0);
+        robot.FrontRight.setPower(0);
+        robot.RearLeft.setPower(0);
+        robot.RearRight.setPower(0);
+        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2)) {
-            telemetry.addData("deviceName",sensorRange.getDeviceName() );
+            telemetry.addData("deviceName", sensorRange.getDeviceName());
             telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
             telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
             telemetry.update();
+        }
 
         //Creates variable to store distance
         float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
