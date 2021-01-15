@@ -56,7 +56,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 public class StMarkTeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
-    HardwareStMarkBot robot       = new HardwareStMarkBot(); // use the class created to define a Pushbot's hardware
+    HardwareQuadbot robot       = new HardwareQuadbot(); // use the class created to define a Pushbot's hardware
     //double          clawOffset  = 0.0 ;                  // Servo mid position
     //final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
 
