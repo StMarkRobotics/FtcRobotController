@@ -40,7 +40,6 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
         // Step 1: Drive forward for .25 seconds to get off the line and move wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
