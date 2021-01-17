@@ -54,12 +54,12 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         }
 
         // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
-        robot.FrontLeft.setPower(FORWARD_SPEED);
-        robot.FrontRight.setPower(FORWARD_SPEED);
-        robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
+        robot.FrontLeft.setPower(-FORWARD_SPEED);
+        robot.FrontRight.setPower(-FORWARD_SPEED);
+        robot.RearLeft.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
@@ -81,12 +81,12 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
 
         // Step 4: Strafe back to the wobble thing.
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
-        robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.FrontLeft.setPower(FORWARD_SPEED);
+        robot.FrontRight.setPower(FORWARD_SPEED);
+        robot.RearLeft.setPower(-FORWARD_SPEED);
+        robot.RearRight.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
         }
@@ -99,7 +99,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 1)) {
+            while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
             }
@@ -109,7 +109,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 4)) {
+            while (opModeIsActive() && (runtime.seconds() < 2)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
@@ -121,7 +121,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(-TURN_SPEED);
             robot.RearRight.setPower(TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 1)) {
+            while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 2- Turning towards target zone B. ", runtime.seconds());
                 telemetry.update();
             }
@@ -131,7 +131,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 7)) {
+            while (opModeIsActive() && (runtime.seconds() < 3)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 2- Pushing wobble thing to target zone B.", runtime.seconds());
                 telemetry.update();
             }
@@ -143,7 +143,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 1)) {
+            while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 4- Turning towards target zone C. ", runtime.seconds());
                 telemetry.update();
             }
@@ -153,7 +153,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 8)) {
+            while (opModeIsActive() && (runtime.seconds() < 4)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
                 telemetry.update();
             }
