@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //@Disabled
 public class Autonomous_LeftBlue extends LinearOpMode {
     private DistanceSensor sensorRange;
-    /* Declare OpMode members. */
+    // Declare OpMode members.
     HardwareQuadbot robot   = new HardwareQuadbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
@@ -39,7 +39,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         waitForStart();
 
 
-        // Step 1: Drive forward for .25 seconds to get off the line and move wobble thing.
+        // Step 1: Drive forward to get off the line and move wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
@@ -157,7 +157,6 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
         }
 
-
         // ...Last Step:  Stop.
         robot.FrontLeft.setPower(0);
         robot.FrontRight.setPower(0);
@@ -169,28 +168,6 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         sleep(1000);
     }
 }
-    /*  // Backwards Code
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
-        robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }  */
-       /* //Turning right Code if needed
-        robot.FrontLeft.setPower(-TURN_SPEED);
-        robot.FrontRight.setPower(TURN_SPEED);
-        robot.RearLeft.setPower(-TURN_SPEED);
-        robot.RearRight.setPower(TURN_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }  */
-
-
 /* Copyright (c) 2017 FIRST. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
