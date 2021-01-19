@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *   otherwise you would use: PushbotAutoDriveByEncoder;
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Autonomous", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Park", group="Pushbot")
 //@Disabled
 public class Park extends LinearOpMode {
     private DistanceSensor sensorRange;
@@ -48,7 +48,7 @@ public class Park extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3)) {
+        while (opModeIsActive() && (runtime.seconds() < 4)) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
