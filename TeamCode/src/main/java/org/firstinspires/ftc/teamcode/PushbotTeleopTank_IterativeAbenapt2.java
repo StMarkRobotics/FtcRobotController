@@ -122,7 +122,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
             robot.RearLeft.setPower(left);} */
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
-        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
+        /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
         robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
         robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
@@ -133,9 +133,9 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
             robot.leftArm.setPower(robot.ARM_DOWN_POWER);
         else
             robot.leftArm.setPower(0.0);
-
+        */
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+        telemetry.addData("strafe",  "Offset = %.2f", strafe);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
     }
