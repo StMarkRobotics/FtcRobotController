@@ -52,9 +52,9 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
         // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
-        robot.FrontRight.setPower(FORWARD_SPEED);
+        robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
@@ -79,9 +79,9 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
         // Step 4: Strafe back to the wobble thing.
         robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
+        robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(-FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
