@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * This file uses the common Pushbot hardware class to define the drive on the robot.
- * The code is structured as a LinearOpMode.
+ * The code is structured as a LinearOpMode
  */
 
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous_LeftBlue", group="Pushbot")
