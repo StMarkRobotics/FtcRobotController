@@ -110,6 +110,34 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
+            //Step 7: Park on the launch line.
+            robot.FrontLeft.setPower(-TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(-TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.FrontLeft.setPower(FORWARD_SPEED);
+            robot.FrontRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(-FORWARD_SPEED);
+            robot.RearRight.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 1)) {
+                telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
+                telemetry.update();
+            }
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(TURN_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.update();
+            }
         }
          else if (stack >= 4.4 ) {
             // Step 5: Turn towards target zone B.
@@ -138,7 +166,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(-TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .5)) {
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
                 telemetry.update();
             }
