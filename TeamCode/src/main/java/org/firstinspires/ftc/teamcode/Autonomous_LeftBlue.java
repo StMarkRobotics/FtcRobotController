@@ -113,10 +113,10 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         }
          else if (stack >= 4.4 ) {
             // Step 5: Turn towards target zone B.
-            robot.FrontLeft.setPower(-TURN_SPEED);
-            robot.FrontRight.setPower(TURN_SPEED);
-            robot.RearLeft.setPower(-TURN_SPEED);
-            robot.RearRight.setPower(TURN_SPEED);
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Turning towards target zone B. ", runtime.seconds());
@@ -128,7 +128,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 3)) {
+            while (opModeIsActive() && (runtime.seconds() < 3.2)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Pushing wobble thing to target zone B.", runtime.seconds());
                 telemetry.update();
             }
