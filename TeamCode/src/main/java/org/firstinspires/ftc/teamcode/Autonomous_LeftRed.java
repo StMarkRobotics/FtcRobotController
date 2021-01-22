@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
  */
 
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous_LeftRed", group="Pushbot")
-//@Disabled
+
 public class Autonomous_LeftRed extends LinearOpMode {
     private DistanceSensor sensorRange;
     // Declare OpMode members.
@@ -93,10 +93,10 @@ public class Autonomous_LeftRed extends LinearOpMode {
         //Depending on what the height of the starter stack was, this will do different things
         if (stack >=5.3) {
             // Step 5: Turn towards target zone A.
-            robot.FrontLeft.setPower(-TURN_SPEED);
-            robot.FrontRight.setPower(TURN_SPEED);
-            robot.RearLeft.setPower(-TURN_SPEED);
-            robot.RearRight.setPower(TURN_SPEED);
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
@@ -115,10 +115,10 @@ public class Autonomous_LeftRed extends LinearOpMode {
         }
          else if (stack >= 4.4 ) {
             // Step 5: Turn towards target zone B.
-            robot.FrontLeft.setPower(-TURN_SPEED);
-            robot.FrontRight.setPower(TURN_SPEED);
-            robot.RearLeft.setPower(-TURN_SPEED);
-            robot.RearRight.setPower(TURN_SPEED);
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Turning towards target zone B. ", runtime.seconds());
@@ -137,10 +137,10 @@ public class Autonomous_LeftRed extends LinearOpMode {
          }
          else {
             // Step 5: Turn towards target zone C.
-            robot.FrontLeft.setPower(-TURN_SPEED);
-            robot.FrontRight.setPower(TURN_SPEED);
-            robot.RearLeft.setPower(-TURN_SPEED);
-            robot.RearRight.setPower(TURN_SPEED);
+            robot.FrontLeft.setPower(TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .4)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 4- Turning towards target zone C. ", runtime.seconds());
