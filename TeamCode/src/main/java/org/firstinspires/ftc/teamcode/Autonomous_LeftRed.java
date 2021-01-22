@@ -69,7 +69,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(0);
         robot.RearRight.setPower(0);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 10)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("deviceName", sensorRange.getDeviceName());
             telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
             telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
