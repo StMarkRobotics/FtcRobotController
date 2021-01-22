@@ -106,7 +106,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 1.7)) {
+            while (opModeIsActive() && (runtime.seconds() < 1.55)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
