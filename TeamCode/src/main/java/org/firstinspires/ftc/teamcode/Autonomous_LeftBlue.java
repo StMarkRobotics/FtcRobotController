@@ -143,7 +143,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 1)) {
+            while (opModeIsActive() && (runtime.seconds() < 1.2)) {
                 telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
                 telemetry.update();
             }
