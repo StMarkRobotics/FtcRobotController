@@ -67,7 +67,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(0);
         robot.RearRight.setPower(0);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("deviceName", sensorRange.getDeviceName());
             telemetry.addData("Path", "Part Three: Checking starter stack height.", runtime.seconds());
             telemetry.addData("range", String.format("%.01f in", sensorRange.getDistance(DistanceUnit.INCH)));
@@ -187,7 +187,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(-TURN_SPEED);
             robot.RearRight.setPower(TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .4)) {
+            while (opModeIsActive() && (runtime.seconds() < .25)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 4- Turning towards target zone C. ", runtime.seconds());
                 telemetry.update();
             }
@@ -197,7 +197,16 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 4)) {
+            while (opModeIsActive() && (runtime.seconds() < 5)) {
+                telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
+                telemetry.update();
+            }
+            robot.FrontLeft.setPower(-FORWARD_SPEED);
+            robot.FrontRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(-FORWARD_SPEED);
+            robot.RearRight.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 3.75)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
                 telemetry.update();
             }
