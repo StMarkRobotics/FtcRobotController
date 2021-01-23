@@ -126,7 +126,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-                telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
+                telemetry.addData("Path", "Part Seven: Parking one launch line.", runtime.seconds());
                 telemetry.update();
             }
             robot.FrontLeft.setPower(TURN_SPEED);
@@ -135,7 +135,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .4)) {
-                telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
+                telemetry.addData("Path", "Part Seven: Parking one launch line.", runtime.seconds());
                 telemetry.update();
             }
             robot.FrontLeft.setPower(TURN_SPEED);
@@ -197,17 +197,18 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 5)) {
+            while (opModeIsActive() && (runtime.seconds() < 5.2)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
                 telemetry.update();
             }
+            //Park on launch line.
             robot.FrontLeft.setPower(-FORWARD_SPEED);
             robot.FrontRight.setPower(-FORWARD_SPEED);
             robot.RearLeft.setPower(-FORWARD_SPEED);
             robot.RearRight.setPower(-FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 3.75)) {
-                telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
+            while (opModeIsActive() && (runtime.seconds() < 3.2)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line.", runtime.seconds());
                 telemetry.update();
             }
 
