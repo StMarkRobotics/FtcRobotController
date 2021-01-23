@@ -169,7 +169,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Pushing wobble thing to target zone B.", runtime.seconds());
                 telemetry.update();
             }
-            // Step 6: Park on line.
+            // Step 7: Park on line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
             robot.RearLeft.setPower(-TURN_SPEED);

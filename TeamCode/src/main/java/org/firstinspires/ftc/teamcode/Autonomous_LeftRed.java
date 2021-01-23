@@ -98,7 +98,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .4)) {
+            while (opModeIsActive() && (runtime.seconds() < .7)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
             }
@@ -108,7 +108,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 2)) {
+            while (opModeIsActive() && (runtime.seconds() < 3)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
@@ -120,7 +120,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .4)) {
+            while (opModeIsActive() && (runtime.seconds() < .35)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Turning towards target zone B. ", runtime.seconds());
                 telemetry.update();
             }
@@ -130,8 +130,18 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearLeft.setPower(FORWARD_SPEED);
             robot.RearRight.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 3)) {
+            while (opModeIsActive() && (runtime.seconds() < 1.35)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Pushing wobble thing to target zone B.", runtime.seconds());
+                telemetry.update();
+            }
+            //Step Six: Park on line.
+            robot.FrontLeft.setPower(-TURN_SPEED);
+            robot.FrontRight.setPower(-TURN_SPEED);
+            robot.RearLeft.setPower(-TURN_SPEED);
+            robot.RearRight.setPower(-TURN_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
                 telemetry.update();
             }
          }
