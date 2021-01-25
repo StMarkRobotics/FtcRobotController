@@ -45,7 +45,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 2.7)) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
@@ -155,7 +155,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .25)) {
+            while (opModeIsActive() && (runtime.seconds() < .3)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Turning towards target zone B. ", runtime.seconds());
                 telemetry.update();
             }
@@ -207,7 +207,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(-FORWARD_SPEED);
             robot.RearRight.setPower(-FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            while (opModeIsActive() && (runtime.seconds() < 2.5)) {
                 telemetry.addData("Path", "Part Seven: Parking on launch line.", runtime.seconds());
                 telemetry.update();
             }
