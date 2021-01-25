@@ -108,7 +108,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         robot.RearLeft.setPower(left);
 
         // Right Strafe??
-        if (strafe) {
+        if (strafe != 0) {
             robot.FrontRight.setPower(-strafe);
             robot.FrontLeft.setPower(strafe);
             robot.RearRight.setPower(strafe);
