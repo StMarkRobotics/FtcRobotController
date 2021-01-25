@@ -50,6 +50,8 @@ public class HardwareQuadbot
     public DcMotor  FrontRight  = null;
     public DcMotor  RearLeft   = null;
     public DcMotor  RearRight  = null;
+    public DcMotor  Tread       = null;
+    public DcMotor  DiscShooter = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -74,16 +76,24 @@ public class HardwareQuadbot
         FrontRight = hwMap.get(DcMotor.class, "FrontRight");
         RearLeft  = hwMap.get(DcMotor.class, "RearLeft");
         RearRight = hwMap.get(DcMotor.class, "RearRight");
+        Tread       = hwMap.get(DcMotor.class, "tread");
+        DiscShooter       = hwMap.get(DcMotor.class, "shooter_motor");
+
         FrontLeft.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         FrontRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         RearLeft.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         RearRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        Tread.setDirection(DcMotor.Direction.FORWARD);
+        DiscShooter.setDirection(DcMotor.Direction.FORWARD);
+
 
         // Set all motors to zero power
         FrontLeft.setPower(0);
         FrontRight.setPower(0);
         RearLeft.setPower(0);
         RearRight.setPower(0);
+        Tread.setPower(0);
+        DiscShooter.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -91,6 +101,9 @@ public class HardwareQuadbot
         FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Tread.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        DiscShooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
 
     }
  }
