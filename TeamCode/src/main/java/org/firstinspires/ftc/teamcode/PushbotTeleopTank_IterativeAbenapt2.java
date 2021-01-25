@@ -96,30 +96,46 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         double left;
         double right;
         double strafe;
+        boolean treadmill;
+        boolean disc_on;
+        boolean disc_off;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
         strafe = gamepad1.right_stick_x;
+        treadmill = gamepad1.dpad_down;
+        disc_on = gamepad1.a;
+        disc_off= gamepad1.b;
 
         robot.FrontRight.setPower(right);
         robot.FrontLeft.setPower(left);
         robot.RearRight.setPower(right);
         robot.RearLeft.setPower(left);
 
-        // Right Strafe??
-        if (strafe) {
+        // Strafe??
+        if (strafe !=0) {
             robot.FrontRight.setPower(-strafe);
             robot.FrontLeft.setPower(strafe);
             robot.RearRight.setPower(strafe);
             robot.RearLeft.setPower(-strafe);}
 
-        // Left Strafe??
-        /*if (strafe) {
-            robot.FrontRight.setPower(right);
-            robot.FrontLeft.setPower(-left);
-            robot.RearRight.setPower(-right);
-            robot.RearLeft.setPower(left);} */
+        // Disc (on)
+        if (disc_on) {
+            robot.DiscShooter.setPower(1);
+        }
+
+        // Disc (off)
+        if (disc_off) {
+            robot.DiscShooter.setPower(0);
+        }
+
+        // Treadmill
+        if (treadmill) {
+            robot.Tread.setPower(1);
+        }
+        else {
+            robot.Tread.setPower(0); }
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
