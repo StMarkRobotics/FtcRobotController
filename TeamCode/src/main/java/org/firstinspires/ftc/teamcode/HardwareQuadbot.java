@@ -84,7 +84,7 @@ public class HardwareQuadbot
         RearLeft.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         RearRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         Tread.setDirection(DcMotor.Direction.FORWARD);
-        DiscShooter.setDirection(DcMotor.Direction.FORWARD);
+        DiscShooter.setDirection(DcMotor.Direction.REVERSE);
 
 
         // Set all motors to zero power
