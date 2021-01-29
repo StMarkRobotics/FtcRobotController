@@ -99,6 +99,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         boolean treadmill;
         boolean disc_on;
         boolean disc_off;
+        //boolean disc_75;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
@@ -107,6 +108,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         treadmill = gamepad1.dpad_down;
         disc_on = gamepad1.a;
         disc_off= gamepad1.b;
+        //disc_75 = gamepad1.x;
 
         robot.FrontRight.setPower(right);
         robot.FrontLeft.setPower(left);
@@ -130,6 +132,10 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
             robot.DiscShooter.setPower(0);
         }
 
+        /* Disc (75%)
+        if (disc_75) {
+            robot.DiscShooter.setPower(75);
+        } */
         // Treadmill
         if (treadmill) {
             robot.Tread.setPower(1);
