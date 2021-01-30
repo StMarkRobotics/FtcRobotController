@@ -134,7 +134,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
 
         //Disc (75%)
         if (disc_75) {
-            robot.DiscShooter.setPower(0.95);
+            robot.DiscShooter.setPower(0.9);
         }
         // Treadmill
         if (treadmill) {
