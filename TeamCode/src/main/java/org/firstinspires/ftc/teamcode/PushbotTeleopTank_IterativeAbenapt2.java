@@ -97,6 +97,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         double right;
         double strafe;
         boolean treadmill;
+        boolean treadmill_50;
         boolean disc_on;
         boolean disc_off;
         boolean disc_90;
@@ -106,6 +107,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         right = -gamepad1.right_stick_y;
         strafe = gamepad1.right_stick_x;
         treadmill = gamepad1.dpad_down;
+        treadmill_50 = gamepad1.dpad_right;
         disc_on = gamepad1.a;
         disc_off= gamepad1.b;
         disc_90 = gamepad1.x;
@@ -115,7 +117,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         robot.RearRight.setPower(right);
         robot.RearLeft.setPower(left);
 
-        //Strafe
+        // Strafe
         if (strafe !=0) {
             robot.FrontRight.setPower(-strafe);
             robot.FrontLeft.setPower(strafe);
@@ -132,10 +134,11 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
             robot.DiscShooter.setPower(0);
         }
 
-        //Disc (90%)
+        // Disc (90%)
         if (disc_90) {
             robot.DiscShooter.setPower(0.9);
         }
+
         // Treadmill
         if (treadmill) {
             robot.Tread.setPower(1);
@@ -143,6 +146,13 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         else {
             robot.Tread.setPower(0); }
 
+        // Treadmill (50)
+        if (treadmill_50) {
+            robot.Tread.setPower(0.5);
+        }
+        else {
+            robot.Tread.setPower(0);
+        }
         // Move both servos to new position.  Assume servos are mirror image of each other.
         /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
         robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
