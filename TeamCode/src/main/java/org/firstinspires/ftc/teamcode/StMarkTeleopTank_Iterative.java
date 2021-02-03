@@ -52,7 +52,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @TeleOp(name="StMarkTest", group="Pushbot")
-//@Disabled
+@Disabled
 public class StMarkTeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
