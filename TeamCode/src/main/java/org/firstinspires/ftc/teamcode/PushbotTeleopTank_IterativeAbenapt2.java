@@ -143,16 +143,13 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         if (treadmill) {
             robot.Tread.setPower(1);
         }
-        else {
-            robot.Tread.setPower(0); }
-
-        // Treadmill (50)
-        if (treadmill_50) {
+        else if (treadmill_50){
             robot.Tread.setPower(0.5);
         }
         else {
-            robot.Tread.setPower(0);
-        }
+            robot.Tread.setPower(0); }
+
+
         // Move both servos to new position.  Assume servos are mirror image of each other.
         /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
         robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
