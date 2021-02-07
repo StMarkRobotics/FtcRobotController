@@ -14,9 +14,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *   otherwise you would use: PushbotAutoDriveByEncoder;
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Park", group="Pushbot")
-//@Disabled
-public class Park extends LinearOpMode {
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park", group="Pushbot")
+public class park extends LinearOpMode {
     private DistanceSensor sensorRange;
     /* Declare OpMode members. */
     HardwareQuadbot robot   = new HardwareQuadbot();   // Use a Pushbot's hardware
