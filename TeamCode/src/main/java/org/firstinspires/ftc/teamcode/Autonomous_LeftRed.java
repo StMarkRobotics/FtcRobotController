@@ -98,7 +98,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearLeft.setPower(TURN_SPEED);
             robot.RearRight.setPower(-TURN_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .8)) {
+            while (opModeIsActive() && (runtime.seconds() < .9)) {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
             }
