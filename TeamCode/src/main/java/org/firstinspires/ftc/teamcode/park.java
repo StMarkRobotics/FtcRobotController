@@ -1,22 +1,20 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DistanceSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
 
-//@TeleOp(name = "Sensor: REV2mDistance", group = "Sensor")
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
 
 /**
  * This file uses the common Pushbot hardware class to define the drive on the robot.
  * The code is structured as a LinearOpMode.
- * The code assumes that you do NOT have encoders on the wheels,
- *   otherwise you would use: PushbotAutoDriveByEncoder;
  */
 
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park", group="Pushbot")
 public class park extends LinearOpMode {
-    private DistanceSensor sensorRange;
     /* Declare OpMode members. */
     HardwareQuadbot robot   = new HardwareQuadbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
@@ -24,22 +22,23 @@ public class park extends LinearOpMode {
 
     static final double     FORWARD_SPEED = 0.6;
     static final double     TURN_SPEED    = 0.5;
+    static double     rearRight_pos = 1;
+    int whiteLine = 10000;
 
     @Override
     public void runOpMode() {
-        sensorRange = hardwareMap.get(Rev2mDistanceSensor .class, "sensor_range");
+        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //Initialize the drive system variables. The init() method of the hardware class does all the work here
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Ready to run");    //
+        telemetry.addData("Status", "Ready to run");
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
         // Step 1: Drive forward.
         robot.FrontLeft.setPower(FORWARD_SPEED);
@@ -47,12 +46,16 @@ public class park extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 4.1)) {
-            telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
+        rearRight_pos =robot.RearRight.getCurrentPosition();
+        while (opModeIsActive() && rearRight_pos > whiteLine) {
+            rearRight_pos = robot.RearRight.getCurrentPosition();
+            telemetry.addData("Path", "Part One: Moving forwards to get off wall.");
+            //I don't know if I did this line right, I copied something from the sensor reading code.
+            telemetry.addData("Encoder", String.format("%.01f", rearRight_pos));
             telemetry.update();
         }
 
-        // ...Last Step:  Stop.
+        // Step 2:  Stop.
         robot.FrontLeft.setPower(0);
         robot.FrontRight.setPower(0);
         robot.RearLeft.setPower(0);

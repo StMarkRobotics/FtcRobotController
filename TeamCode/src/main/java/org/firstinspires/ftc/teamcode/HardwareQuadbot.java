@@ -100,7 +100,7 @@ public class HardwareQuadbot
         FrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Tread.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         DiscShooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
