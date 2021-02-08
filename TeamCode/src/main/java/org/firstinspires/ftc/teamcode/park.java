@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
+//import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
@@ -47,7 +47,7 @@ public class park extends LinearOpMode {
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
         rearRight_pos =robot.RearRight.getCurrentPosition();
-        while (opModeIsActive() && rearRight_pos > whiteLine) {
+        while (opModeIsActive() && rearRight_pos < whiteLine) {
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.");
             //I don't know if I did this line right, I copied something from the sensor reading code.
