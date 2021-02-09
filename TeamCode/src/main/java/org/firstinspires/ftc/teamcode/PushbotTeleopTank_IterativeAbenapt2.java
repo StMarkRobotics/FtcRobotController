@@ -194,6 +194,8 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         telemetry.addData("strafe",  "Offset = %.2f", strafe);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
+        telemetry.addData("claw", "%.2f", ClawOffset);
+
     }
 
     /*
