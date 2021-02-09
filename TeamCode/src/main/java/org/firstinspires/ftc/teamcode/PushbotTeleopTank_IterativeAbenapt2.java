@@ -58,8 +58,8 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
 
     /* Declare OpMode members. */
     HardwareQuadbot robot       = new HardwareQuadbot(); // use the class created to define a Pushbot's hardware
-    //double          clawOffset  = 0.0 ;                  // Servo mid position
-    //final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    double          ClawOffset  = 0.0 ;                  // Servo mid position
+    final double    Claw_Speed  = 0.02 ;                 // sets rate to move servo
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -170,13 +170,18 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
             robot.arm_motor.setPower(0);
         }
 
+        // CLAW
+        if (gamepad1.right_trigger != 0)
+            ClawOffset += Claw_Speed;
+        else if (gamepad1.left_trigger != 0)
+            ClawOffset -= Claw_Speed;
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
-        /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+        ClawOffset = Range.clip(ClawOffset, -0.5, 0.5);
+        robot.claw_servo.setPosition(robot.MID_SERVO + ClawOffset);
 
-        // Use gamepad buttons to move the arm up (Y) and down (A)
+
+        /* Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)
             robot.leftArm.setPower(robot.ARM_UP_POWER);
         else if (gamepad1.a)
@@ -184,6 +189,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         else
             robot.leftArm.setPower(0.0);
         */
+
         // Send telemetry message to signify robot running;
         telemetry.addData("strafe",  "Offset = %.2f", strafe);
         telemetry.addData("left",  "%.2f", left);
