@@ -52,7 +52,7 @@ public class park extends LinearOpMode {
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.");
             //I don't know if I did this line right, I copied something from the sensor reading code.
-            telemetry.addData("Encoder", String.format("%.01f", rearRight_pos));
+            telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.update();
         }
 
