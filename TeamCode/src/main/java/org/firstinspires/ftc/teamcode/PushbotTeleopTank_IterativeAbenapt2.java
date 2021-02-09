@@ -158,6 +158,18 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         else {
             robot.Tread.setPower(0); }
 
+        // Arm Position
+        arm_pos = robot.arm_motor.getCurrentPosition();
+        if (arm_up & arm_pos< 6000) {
+            robot.arm_motor.setPower(0.5);
+        }
+        else if (arm_down & arm_pos > 0) {
+            robot.arm_motor.setPower(-0.5);
+        }
+        else {
+            robot.arm_motor.setPower(0);
+        }
+
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         /*clawOffset = Range.clip(clawOffset, -0.5, 0.5);
