@@ -25,6 +25,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
 
     static final double     FORWARD_SPEED = 0.45;
     static final double     TURN_SPEED    = 0.45;
+    static double     rearRight_pos = 1;
 
     @Override
     public void runOpMode() {
