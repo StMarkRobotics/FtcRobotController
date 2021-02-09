@@ -52,6 +52,8 @@ public class HardwareQuadbot
     public DcMotor  RearRight  = null;
     public DcMotor  Tread       = null;
     public DcMotor  DiscShooter = null;
+    public DcMotor arm_motor = null;
+    public Servo claw_servo = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -78,6 +80,12 @@ public class HardwareQuadbot
         RearRight = hwMap.get(DcMotor.class, "RearRight");
         Tread       = hwMap.get(DcMotor.class, "tread");
         DiscShooter       = hwMap.get(DcMotor.class, "shooter_motor");
+        arm_motor = hwMap.get(DcMotor.class,"arm_motor");
+
+        //Claw setup
+        claw_servo = hwMap.get(Servo.class,"claw_servo");
+        claw_servo.setPosition(MID_SERVO);
+
 
         FrontLeft.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         FrontRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
@@ -85,6 +93,7 @@ public class HardwareQuadbot
         RearRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         Tread.setDirection(DcMotor.Direction.FORWARD);
         DiscShooter.setDirection(DcMotor.Direction.REVERSE);
+        arm_motor.setDirection(DcMotor.Direction.FORWARD);
 
 
         // Set all motors to zero power
@@ -94,16 +103,17 @@ public class HardwareQuadbot
         RearRight.setPower(0);
         Tread.setPower(0);
         DiscShooter.setPower(0);
+        arm_motor.setPower(0);
 
-        // Set all motors to run without encoders.
-        // May want to use RUN_USING_ENCODERS if encoders are installed.
+
+        // Set with or without encoders
         FrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Tread.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         DiscShooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+        arm_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
     }
  }
