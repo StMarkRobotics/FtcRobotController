@@ -69,6 +69,8 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
          * The init() method of the hardware class does all the work here
          */
         robot.init(hardwareMap);
+        robot.ArmMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.ArmMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
@@ -96,6 +98,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         double left;
         double right;
         double strafe;
+        double arm_pos;
         boolean treadmill;
         boolean treadmill_50;
         boolean disc_on;
@@ -111,6 +114,7 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         disc_on = gamepad1.a;
         disc_off= gamepad1.b;
         disc_90 = gamepad1.x;
+        arm_pos = gamepad1.left_bumper;
 
         robot.FrontRight.setPower(right);
         robot.FrontLeft.setPower(left);
