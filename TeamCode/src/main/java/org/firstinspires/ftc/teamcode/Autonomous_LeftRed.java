@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -30,6 +31,8 @@ public class Autonomous_LeftRed extends LinearOpMode {
     @Override
     public void runOpMode() {
         sensorRange = hardwareMap.get(Rev2mDistanceSensor .class, "sensor_range");
+        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //Initialize the drive system variables. The init() method of the hardware class does all the work here.
         robot.init(hardwareMap);
@@ -48,7 +51,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.9)) {
+        while (opModeIsActive() && (rearRight_pos > 3000)/*(runtime.seconds() < 2.9 */ ) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
