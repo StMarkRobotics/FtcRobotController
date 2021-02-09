@@ -27,11 +27,12 @@ public class park extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 
         //Initialize the drive system variables. The init() method of the hardware class does all the work here
         robot.init(hardwareMap);
+        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");
