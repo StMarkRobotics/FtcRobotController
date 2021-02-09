@@ -100,6 +100,8 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         double right;
         double strafe;
         double arm_pos;
+        boolean arm_up;
+        boolean arm_down;
         boolean treadmill;
         boolean treadmill_50;
         boolean disc_on;
@@ -115,7 +117,9 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         disc_on = gamepad1.a;
         disc_off= gamepad1.b;
         disc_90 = gamepad1.x;
-        arm_pos = gamepad1.left_bumper;
+        arm_up = gamepad1.left_bumper;
+        arm_down = gamepad1.right_bumper;
+
 
         robot.FrontRight.setPower(right);
         robot.FrontLeft.setPower(left);
