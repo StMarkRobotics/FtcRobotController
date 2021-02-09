@@ -24,6 +24,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
     static final double     FORWARD_SPEED = 0.45;
     static final double     TURN_SPEED    = 0.45;
+    static final double     FORWARD_SPEED_ENCODER = 0.7;
     static double     rearRight_pos = 1;
 
     @Override
@@ -47,7 +48,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED_ENCODER);
         runtime.reset();
         while (opModeIsActive() && (rearRight_pos > 3000)/*(runtime.seconds() < 2.9 */ ) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());

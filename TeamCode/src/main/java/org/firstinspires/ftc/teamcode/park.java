@@ -20,8 +20,8 @@ public class park extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
 
-    static final double     FORWARD_SPEED = 0.3;
-    static final double     TURN_SPEED    = 0.5;
+    static final double     FORWARD_SPEED = 0.4;
+    static final double     FORWARD_SPEED_ENCODER = 0.7;
     static double     rearRight_pos = 1;
     int whiteLine = 1000;
 
@@ -45,7 +45,7 @@ public class park extends LinearOpMode {
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED_ENCODER);
         runtime.reset();
         rearRight_pos =robot.RearRight.getCurrentPosition();
         while (opModeIsActive() && rearRight_pos < whiteLine) {
