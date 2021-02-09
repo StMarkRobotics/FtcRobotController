@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park", group="Pushbot")
 public class park extends LinearOpMode {
     /* Declare OpMode members. */
-    HardwareQuadbot robot   = new HardwareQuadbot();   // Use a Pushbot's hardware
+    HardwareQuadbot robot   = new HardwareQuadbot();   //Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
 
