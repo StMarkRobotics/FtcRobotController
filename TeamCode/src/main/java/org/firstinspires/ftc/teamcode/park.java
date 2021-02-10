@@ -23,7 +23,7 @@ public class park extends LinearOpMode {
     static final double     FORWARD_SPEED = 0.5;
     static final double     FORWARD_SPEED_ENCODER = 0.5;
     static double     rearRight_pos = 1;
-    int whiteLine = 5000;
+    int whiteLine = 5750;
 
     @Override
     public void runOpMode() {
