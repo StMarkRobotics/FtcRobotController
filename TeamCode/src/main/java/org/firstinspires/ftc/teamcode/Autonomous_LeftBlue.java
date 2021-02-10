@@ -25,7 +25,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
     static final double     FORWARD_SPEED = 0.45;
     static final double     TURN_SPEED    = 0.45;
     static double     rearRight_pos = 1;
-    static double arm_distance= 1.5;
+    static double arm_pos= 1.5;
 
     @Override
     public void runOpMode() {
@@ -35,6 +35,8 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.init(hardwareMap);
         robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.arm_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.arm_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");    //
@@ -123,9 +125,9 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
+            while (opModeIsActive() && ()) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
@@ -135,7 +137,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(0);
             robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
@@ -203,7 +205,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
@@ -215,7 +217,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(0);
             robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
@@ -256,7 +258,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
@@ -268,7 +270,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearLeft.setPower(0);
             robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
