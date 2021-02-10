@@ -25,6 +25,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
     static final double     FORWARD_SPEED = 0.45;
     static final double     TURN_SPEED    = 0.45;
     static double     rearRight_pos = 1;
+    static double arm_distance= .7;
 
     @Override
     public void runOpMode() {
@@ -49,7 +50,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (rearRight_pos < 3000) ) {
+        while (opModeIsActive() && (rearRight_pos < 3200) ) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
@@ -124,14 +125,18 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             //Step 6b: Drop of the wobble thing.
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
@@ -199,14 +204,18 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             //Step 6b: Drop of the wobble thing.
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
@@ -247,14 +256,18 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             //Step 6b: Drop of the wobble thing.
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
             robot.claw_servo.setPosition(0.5);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
+            while (opModeIsActive() && (runtime.seconds() < arm_distance)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
