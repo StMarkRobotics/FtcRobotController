@@ -21,7 +21,7 @@ public class park extends LinearOpMode {
 
 
     static final double     FORWARD_SPEED = 0.4;
-    static final double     FORWARD_SPEED_ENCODER = 0.7;
+    static final double     FORWARD_SPEED_ENCODER = 0.9;
     static double     rearRight_pos = 1;
     int whiteLine = 4000;
 
