@@ -125,9 +125,13 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 2000)) {
+            while (opModeIsActive() && (arm_pos < 6000)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -137,16 +141,21 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.FrontRight.setPower(0);
             robot.RearLeft.setPower(0);
             robot.RearRight.setPower(0);
+            while (opModeIsActive() && (runtime.seconds() < 1)) {
+                telemetry.addData("waiting","waiting");
+                telemetry.update();
+            }
             robot.claw_servo.setPosition(0.5);
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             arm_pos = robot.arm_motor.getCurrentPosition();
-            while (opModeIsActive() && (arm_pos < 2000)) {
+            while (opModeIsActive() && (arm_pos > 100)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
             robot.arm_motor.setPower(0);
+
             //Step 7: Park on the launch line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -207,6 +216,38 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.update();
             }
 
+            //Step 6b: Drop of the wobble thing.
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
+            robot.arm_motor.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (arm_pos < 6000)) {
+                arm_pos = robot.arm_motor.getCurrentPosition();
+                telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.arm_motor.setPower(0);
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
+            while (opModeIsActive() && (runtime.seconds() < 1)) {
+                telemetry.addData("waiting","waiting");
+                telemetry.update();
+            }
+            robot.claw_servo.setPosition(0.5);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            arm_pos = robot.arm_motor.getCurrentPosition();
+            while (opModeIsActive() && (arm_pos > 100)) {
+                arm_pos = robot.arm_motor.getCurrentPosition();
+                telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
+                telemetry.update();
+            }
+            robot.arm_motor.setPower(0);
+
             // Step 7: Park on line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -239,6 +280,38 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
                 telemetry.update();
             }
+
+            //Step 6b: Drop of the wobble thing.
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
+            robot.arm_motor.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (arm_pos < 6000)) {
+                arm_pos = robot.arm_motor.getCurrentPosition();
+                telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.arm_motor.setPower(0);
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
+            while (opModeIsActive() && (runtime.seconds() < 1)) {
+                telemetry.addData("waiting","waiting");
+                telemetry.update();
+            }
+            robot.claw_servo.setPosition(0.5);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            arm_pos = robot.arm_motor.getCurrentPosition();
+            while (opModeIsActive() && (arm_pos > 100)) {
+                arm_pos = robot.arm_motor.getCurrentPosition();
+                telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
+                telemetry.update();
+            }
+            robot.arm_motor.setPower(0);
 
             //Park on launch line.
             robot.FrontLeft.setPower(-FORWARD_SPEED);
