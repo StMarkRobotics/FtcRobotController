@@ -31,11 +31,11 @@ public class Autonomous_LeftRed extends LinearOpMode {
     @Override
     public void runOpMode() {
         sensorRange = hardwareMap.get(Rev2mDistanceSensor .class, "sensor_range");
-        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //Initialize the drive system variables. The init() method of the hardware class does all the work here.
         robot.init(hardwareMap);
+        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");    //
@@ -51,7 +51,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (rearRight_pos > 3000)/*(runtime.seconds() < 2.9 */ ) {
+        while (opModeIsActive() && (rearRight_pos > 3000)) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
