@@ -129,6 +129,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.arm_motor.setPower(0);
             robot.FrontLeft.setPower(0);
             robot.FrontRight.setPower(0);
             robot.RearLeft.setPower(0);
@@ -140,7 +141,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
-
+            robot.arm_motor.setPower(0);
             //Step 7: Park on the launch line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -208,6 +209,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.arm_motor.setPower(0);
             robot.FrontLeft.setPower(0);
             robot.FrontRight.setPower(0);
             robot.RearLeft.setPower(0);
@@ -219,7 +221,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
-
+            robot.arm_motor.setPower(0);
             // Step 7: Park on line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -260,6 +262,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
+            robot.arm_motor.setPower(0);
             robot.FrontLeft.setPower(0);
             robot.FrontRight.setPower(0);
             robot.RearLeft.setPower(0);
@@ -271,6 +274,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
+            robot.arm_motor.setPower(0);
             //Park on launch line.
             robot.FrontLeft.setPower(-FORWARD_SPEED);
             robot.FrontRight.setPower(-FORWARD_SPEED);
