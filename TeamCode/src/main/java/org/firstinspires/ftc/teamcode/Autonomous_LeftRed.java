@@ -70,7 +70,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .7)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
@@ -97,7 +97,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .7)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
         }
@@ -132,7 +132,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -178,16 +178,6 @@ public class Autonomous_LeftRed extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Pushing wobble thing to target zone B.", runtime.seconds());
                 telemetry.update();
             }
-            //Step Six: Park on line.
-            robot.FrontLeft.setPower(-TURN_SPEED);
-            robot.FrontRight.setPower(-TURN_SPEED);
-            robot.RearLeft.setPower(-TURN_SPEED);
-            robot.RearRight.setPower(-TURN_SPEED);
-            runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < .6)) {
-                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
-                telemetry.update();
-            }
             //Step 6b: Drop of the wobble thing.
             robot.FrontLeft.setPower(0);
             robot.FrontRight.setPower(0);
@@ -195,7 +185,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -219,6 +209,18 @@ public class Autonomous_LeftRed extends LinearOpMode {
                 telemetry.update();
             }
             robot.arm_motor.setPower(0);
+
+            //Step Seven: Park on line.
+            robot.FrontLeft.setPower(-FORWARD_SPEED);
+            robot.FrontRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(-FORWARD_SPEED);
+            robot.RearRight.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.update();
+            }
+
         }
          else {
             // Step 5: Turn towards target zone C.
@@ -248,7 +250,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -272,6 +274,17 @@ public class Autonomous_LeftRed extends LinearOpMode {
                 telemetry.update();
             }
             robot.arm_motor.setPower(0);
+
+            //Park on launch line.
+            robot.FrontLeft.setPower(-FORWARD_SPEED);
+            robot.FrontRight.setPower(-FORWARD_SPEED);
+            robot.RearLeft.setPower(-FORWARD_SPEED);
+            robot.RearRight.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 2.5)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line.", runtime.seconds());
+                telemetry.update();
+            }
         }
 
         // ...Last Step:  Stop.

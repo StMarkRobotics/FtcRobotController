@@ -69,7 +69,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .7)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
             telemetry.update();
         }
@@ -90,13 +90,13 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         //Creates variable to store distance
         float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
 
-        // Step 4: Strafe back to the wobble thing.
+        // Step 4: Strafe back.
         robot.FrontLeft.setPower(-FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .7)) {
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
             telemetry.update();
         }
@@ -131,7 +131,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -223,7 +223,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -288,7 +288,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.RearRight.setPower(0);
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 6000)) {
+            while (opModeIsActive() && (arm_pos < 5500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
