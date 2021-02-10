@@ -122,14 +122,14 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
@@ -197,14 +197,14 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
@@ -245,14 +245,14 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
 
             //Step 6b: Drop of the wobble thing.
-            robot.arm_motor.setPower(FORWARD_SPEED);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
             robot.claw_servo.setPosition(0.5);
-            robot.arm_motor.setPower(-FORWARD_SPEED);
+            robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
