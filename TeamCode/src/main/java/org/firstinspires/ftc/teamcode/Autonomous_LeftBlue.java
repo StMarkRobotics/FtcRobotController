@@ -25,7 +25,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
     static final double     FORWARD_SPEED = 0.45;
     static final double     TURN_SPEED    = 0.45;
     static double     rearRight_pos = 1;
-    static double arm_distance= .7;
+    static double arm_distance= 1.5;
 
     @Override
     public void runOpMode() {
