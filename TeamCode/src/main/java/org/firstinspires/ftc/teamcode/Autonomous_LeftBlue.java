@@ -110,7 +110,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
                 telemetry.update();
             }
-            // Step 6: Push wobble thing to target zone A.
+            // Step 6: Drive to target zone A.
             robot.FrontLeft.setPower(FORWARD_SPEED);
             robot.FrontRight.setPower(FORWARD_SPEED);
             robot.RearLeft.setPower(FORWARD_SPEED);
@@ -120,6 +120,15 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 0- Pushing wobble thing to target zone A.", runtime.seconds());
                 telemetry.update();
             }
+
+            //Step 6b: Drop of the wobble thing.
+            robot.arm_motor.setPower(FORWARD_SPEED);
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.claw_servo.setPosition(0.5);
+
             //Step 7: Park on the launch line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
