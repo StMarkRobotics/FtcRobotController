@@ -127,7 +127,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             //Step 6b: Drop of the wobble thing.
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
-            while (opModeIsActive() && (arm_pos < 500)) {
+            while (opModeIsActive() && (arm_pos < 2000)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
@@ -141,7 +141,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             arm_pos = robot.arm_motor.getCurrentPosition();
-            while (opModeIsActive() && (arm_pos < 500)) {
+            while (opModeIsActive() && (arm_pos < 2000)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
