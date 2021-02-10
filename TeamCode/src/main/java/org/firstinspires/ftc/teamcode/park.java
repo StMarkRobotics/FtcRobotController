@@ -20,10 +20,10 @@ public class park extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
 
-    static final double     FORWARD_SPEED = 0.4;
-    static final double     FORWARD_SPEED_ENCODER = 0.9;
+    static final double     FORWARD_SPEED = 0.5;
+    static final double     FORWARD_SPEED_ENCODER = 0.5;
     static double     rearRight_pos = 1;
-    int whiteLine = 4000;
+    int whiteLine = 5000;
 
     @Override
     public void runOpMode() {

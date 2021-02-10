@@ -55,6 +55,10 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             telemetry.update();
         }
 
+        //Stop encoder
+        robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(-FORWARD_SPEED);
