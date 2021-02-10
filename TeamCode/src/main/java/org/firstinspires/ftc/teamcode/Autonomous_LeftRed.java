@@ -52,6 +52,8 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (rearRight_pos < 3000)) {
+            rearRight_pos = robot.RearRight.getCurrentPosition();
+            telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             telemetry.update();
         }
