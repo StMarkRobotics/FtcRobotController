@@ -129,6 +129,11 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             }
             robot.claw_servo.setPosition(0.5);
 
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.update();
+            }
+
             //Step 7: Park on the launch line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
