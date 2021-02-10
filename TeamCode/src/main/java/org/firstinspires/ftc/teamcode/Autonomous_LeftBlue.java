@@ -125,14 +125,14 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             robot.arm_motor.setPower(FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
-                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
                 telemetry.update();
             }
             robot.claw_servo.setPosition(0.5);
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < .6)) {
-                telemetry.addData("Path", "Part Seven: Parking on launch line. ", runtime.seconds());
+                telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
 
@@ -195,6 +195,22 @@ public class Autonomous_LeftBlue extends LinearOpMode {
                 telemetry.addData("Path", "Part Six: Starter Stack 1- Pushing wobble thing to target zone B.", runtime.seconds());
                 telemetry.update();
             }
+
+            //Step 6b: Drop of the wobble thing.
+            robot.arm_motor.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.claw_servo.setPosition(0.5);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
+                telemetry.update();
+            }
+
             // Step 7: Park on line.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -225,6 +241,21 @@ public class Autonomous_LeftBlue extends LinearOpMode {
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 4.8)) {
                 telemetry.addData("Path", "Part Six: Starter Stack 4- Pushing wobble thing to target zone C.", runtime.seconds());
+                telemetry.update();
+            }
+
+            //Step 6b: Drop of the wobble thing.
+            robot.arm_motor.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "dropping off wobble thing ", runtime.seconds());
+                telemetry.update();
+            }
+            robot.claw_servo.setPosition(0.5);
+            robot.arm_motor.setPower(-FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < .6)) {
+                telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
             }
             //Park on launch line.
