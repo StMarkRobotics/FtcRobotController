@@ -29,7 +29,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        sensorRange = hardwareMap.get(Rev2mDistanceSensor .class, "sensor_range");
+
 
         //Initialize the drive system variables. The init() method of the hardware class does all the work here.
         robot.init(hardwareMap);
@@ -37,6 +37,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.arm_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.arm_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        sensorRange = hardwareMap.get(Rev2mDistanceSensor.class, "sensor_range");
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");    //
@@ -45,7 +46,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-
+        rearRight_pos = robot.RearRight.getCurrentPosition();
         // Step 1: Drive forward to get off the line and move wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
