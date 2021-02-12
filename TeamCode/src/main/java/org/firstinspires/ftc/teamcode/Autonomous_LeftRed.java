@@ -33,12 +33,14 @@ public class Autonomous_LeftRed extends LinearOpMode {
     @Override
     public void runOpMode() {
 
+
         //Initialize the drive system variables. The init() method of the hardware class does all the work here.
         robot.init(hardwareMap);
         robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.RearRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.arm_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.arm_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         sensorRange = hardwareMap.get(Rev2mDistanceSensor.class, "sensor_range");
 
         // Send telemetry message to signify robot waiting;
@@ -48,6 +50,8 @@ public class Autonomous_LeftRed extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        robot.claw_servo.setPosition(-0.25);
+
         rearRight_pos = robot.RearRight.getCurrentPosition();
 
         // Step 1: Drive forward to get off the line and move wobble thing.
@@ -56,7 +60,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (rearRight_pos < 3300)) {
+        while (opModeIsActive() && (rearRight_pos < 3200)) {
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
@@ -68,10 +72,10 @@ public class Autonomous_LeftRed extends LinearOpMode {
         robot.RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
-        robot.FrontLeft.setPower(FORWARD_SPEED);
+        robot.FrontLeft.setPower(FORWARD_SPEED*1.5);
         robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED*1.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.2)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
@@ -106,7 +110,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
         }
 
         //Depending on what the height of the starter stack was, this will do different things
-        if (stack >=5.3) {
+        if (stack >=5.8) {
             // Step 5: Turn towards target zone A.
             robot.FrontLeft.setPower(TURN_SPEED);
             robot.FrontRight.setPower(-TURN_SPEED);
@@ -153,7 +157,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             arm_pos = robot.arm_motor.getCurrentPosition();
-            while (opModeIsActive() && (arm_pos > 100)) {
+            while (opModeIsActive() && (arm_pos > 500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
@@ -206,7 +210,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             arm_pos = robot.arm_motor.getCurrentPosition();
-            while (opModeIsActive() && (arm_pos > 100)) {
+            while (opModeIsActive() && (arm_pos > 500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();
@@ -271,7 +275,7 @@ public class Autonomous_LeftRed extends LinearOpMode {
             robot.arm_motor.setPower(-FORWARD_SPEED);
             runtime.reset();
             arm_pos = robot.arm_motor.getCurrentPosition();
-            while (opModeIsActive() && (arm_pos > 100)) {
+            while (opModeIsActive() && (arm_pos > 500)) {
                 arm_pos = robot.arm_motor.getCurrentPosition();
                 telemetry.addData("Path", "dropping off wobble thing", runtime.seconds());
                 telemetry.update();

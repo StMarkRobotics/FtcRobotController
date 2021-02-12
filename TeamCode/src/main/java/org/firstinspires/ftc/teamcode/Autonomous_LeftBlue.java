@@ -46,6 +46,8 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        robot.claw_servo.setPosition(-0.25);
+
         rearRight_pos = robot.RearRight.getCurrentPosition();
         // Step 1: Drive forward to get off the line and move wobble thing.
         robot.FrontLeft.setPower(FORWARD_SPEED);
@@ -53,7 +55,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearLeft.setPower(FORWARD_SPEED);
         robot.RearRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (rearRight_pos < 3300) ) {
+        while (opModeIsActive() && (rearRight_pos < 3500) ) {
             telemetry.addData("Path", "Part One: Moving forwards to get off wall.", runtime.seconds());
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
@@ -65,10 +67,10 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         robot.RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
-        robot.FrontLeft.setPower(FORWARD_SPEED);
+        robot.FrontLeft.setPower(FORWARD_SPEED*1.5);
         robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED*1.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.2)) {
             telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
@@ -103,7 +105,7 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         }
 
         //Depending on what the height of the starter stack was, this will do different things
-        if (stack >=5.3) {
+        if (stack >=5.8) {
             // Step 5: Turn towards target zone A.
             robot.FrontLeft.setPower(-TURN_SPEED);
             robot.FrontRight.setPower(TURN_SPEED);

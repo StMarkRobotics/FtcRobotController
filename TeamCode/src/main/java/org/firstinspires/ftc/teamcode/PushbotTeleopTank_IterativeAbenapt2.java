@@ -73,6 +73,8 @@ public class PushbotTeleopTank_IterativeAbenapt2 extends OpMode{
         robot.arm_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.arm_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+        robot.RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
     }

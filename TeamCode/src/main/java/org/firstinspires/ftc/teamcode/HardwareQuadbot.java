@@ -55,7 +55,7 @@ public class HardwareQuadbot
     public DcMotor arm_motor = null;
     public Servo claw_servo = null;
 
-    public static final double MID_SERVO       =  -0.25 ;
+    public static final double MID_SERVO       =  0.0 ;
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
 
