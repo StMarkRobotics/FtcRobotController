@@ -94,10 +94,10 @@ public class Autonomous_LeftBlue extends LinearOpMode {
         float stack = (float) sensorRange.getDistance(DistanceUnit.INCH);
 
         // Step 4: Strafe back.
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
+        robot.FrontLeft.setPower(-FORWARD_SPEED*1.5);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
+        robot.RearRight.setPower(-FORWARD_SPEED*1.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.2)) {
             telemetry.addData("Path", "Part Four: Strafing back to wobble thing. ", runtime.seconds());
