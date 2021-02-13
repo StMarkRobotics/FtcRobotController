@@ -41,7 +41,14 @@ public class park extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        // Step 1: Drive forward.
+        //Step 1: Wait 15 seconds before starting.
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 15))  {
+            telemetry.addData("Path", "Part One: Waiting 15 seconds before starting");
+            telemetry.update();
+        }
+
+        // Step 2: Drive forward.
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
@@ -50,8 +57,7 @@ public class park extends LinearOpMode {
         rearRight_pos =robot.RearRight.getCurrentPosition();
         while (opModeIsActive() && rearRight_pos < whiteLine) {
             rearRight_pos = robot.RearRight.getCurrentPosition();
-            telemetry.addData("Path", "Part One: Moving forwards to get off wall.");
-            //I don't know if I did this line right, I copied something from the sensor reading code.
+            telemetry.addData("Path", "Part Two: Parking one the line.");
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.update();
         }
