@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * The code is structured as a LinearOpMode.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park_ext", group="Pushbot")
 public class park_extended extends LinearOpMode {
     /* Declare OpMode members. */
     HardwareQuadbot robot   = new HardwareQuadbot();   //Use a Pushbot's hardware
