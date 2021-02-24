@@ -11,6 +11,19 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 /**
  * This file uses the common Pushbot hardware class to define the drive on the robot.
  * The code is structured as a LinearOpMode.
+ *
+ * Strafe right code:
+ *
+ // Step 2: Strafe right to check starter stack, temporarily leaving wobble thing.
+ robot.FrontLeft.setPower(FORWARD_SPEED*1.5);
+ robot.FrontRight.setPower(-FORWARD_SPEED);
+ robot.RearLeft.setPower(-FORWARD_SPEED);
+ robot.RearRight.setPower(FORWARD_SPEED*1.5);
+ runtime.reset();
+ while (opModeIsActive() && (runtime.seconds() < 1.2)) {
+ telemetry.addData("Path", "Part Two: Strafing to starter stack.", runtime.seconds());
+ telemetry.update();
+ }
  */
 
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park", group="Pushbot")
@@ -55,12 +68,41 @@ public class park extends LinearOpMode {
         robot.RearRight.setPower(FORWARD_SPEED_ENCODER);
         runtime.reset();
         rearRight_pos =robot.RearRight.getCurrentPosition();
-        while (opModeIsActive() && rearRight_pos < whiteLine) {
+        while (opModeIsActive() && rearRight_pos < whiteLine*.75) {
             rearRight_pos = robot.RearRight.getCurrentPosition();
             telemetry.addData("Path", "Part Two: Parking one the line.");
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.update();
         }
+
+
+        runtime.reset();
+        robot.DiscShooter.setPower(1);
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
+            telemetry.addData("Path", "Starting up shooter");
+        }
+        runtime.reset();
+        robot.Tread.setPower(1);
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
+            telemetry.addData("Path", "Shooting");
+        }
+        robot.DiscShooter.setPower(0);
+        robot.Tread.setPower(0);
+
+        // Step 2: Drive forward.
+        robot.FrontLeft.setPower(FORWARD_SPEED);
+        robot.FrontRight.setPower(FORWARD_SPEED);
+        robot.RearLeft.setPower(FORWARD_SPEED);
+        robot.RearRight.setPower(FORWARD_SPEED_ENCODER);
+        runtime.reset();
+        rearRight_pos =robot.RearRight.getCurrentPosition();
+        while (opModeIsActive() && rearRight_pos < whiteLine*.25) {
+            rearRight_pos = robot.RearRight.getCurrentPosition();
+            telemetry.addData("Path", "Part Two: Parking one the line.");
+            telemetry.addData("Encoder", String.format("%f", rearRight_pos));
+            telemetry.update();
+        }
+
 
         // Step 2:  Stop.
         robot.FrontLeft.setPower(0);
