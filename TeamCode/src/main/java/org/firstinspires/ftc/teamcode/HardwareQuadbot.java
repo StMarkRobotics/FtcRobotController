@@ -55,7 +55,7 @@ public class HardwareQuadbot
     public DcMotor arm_motor = null;
     public Servo claw_servo = null;
 
-    public static final double MID_SERVO       =  0.0 ;
+    public static final double MID_SERVO       =  0 ;
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
 
@@ -84,7 +84,7 @@ public class HardwareQuadbot
 
         //Claw setup
         claw_servo = hwMap.get(Servo.class,"claw_servo");
-        claw_servo.setPosition(-.25);
+        claw_servo.setPosition(-.9);
 
 
         FrontLeft.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
