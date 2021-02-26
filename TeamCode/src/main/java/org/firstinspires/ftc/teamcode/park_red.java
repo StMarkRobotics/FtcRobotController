@@ -98,7 +98,7 @@ public class park_red extends LinearOpMode {
 
         robot.Tread.setPower(0);
 
-        // Step 5: Turn right
+        // Step 5: Turn
         robot.FrontLeft.setPower(FORWARD_SPEED);
         robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(FORWARD_SPEED);
@@ -130,6 +130,7 @@ public class park_red extends LinearOpMode {
         robot.FrontRight.setPower(-FORWARD_SPEED);
         robot.RearLeft.setPower(-FORWARD_SPEED);
         robot.RearRight.setPower(-FORWARD_SPEED);
+        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.75)) {
             telemetry.addData("Path", "parking");
             telemetry.update();
