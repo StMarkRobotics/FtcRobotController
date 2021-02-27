@@ -55,7 +55,7 @@ public class park_blue extends LinearOpMode {
         robot.RearRight.setPower(-FORWARD_SPEED_ENCODER);
 
         rearRight_pos = -(robot.RearRight.getCurrentPosition());
-        while (opModeIsActive() && rearRight_pos < whiteLine*.7) {
+        while (opModeIsActive() && rearRight_pos < whiteLine*.8) {
             rearRight_pos = -(robot.RearRight.getCurrentPosition());
             telemetry.addData("Path", "Part Two: Parking one the line.");
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
@@ -129,7 +129,7 @@ public class park_blue extends LinearOpMode {
         robot.RearRight.setPower(-FORWARD_SPEED);
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.75)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.7)) {
             telemetry.addData("Path", "parking");
             telemetry.update();
         }
