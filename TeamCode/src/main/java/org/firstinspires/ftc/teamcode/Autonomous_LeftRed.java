@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
  * The code is structured as a LinearOpMode.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous_LeftRed", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="don't_use", group="Pushbot")
 
 public class Autonomous_LeftRed extends LinearOpMode {
     private DistanceSensor sensorRange;

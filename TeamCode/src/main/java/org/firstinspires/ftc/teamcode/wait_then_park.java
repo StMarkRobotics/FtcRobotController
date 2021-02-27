@@ -12,8 +12,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *
  }
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="park_blue", group="Pushbot")
-public class park_blue extends LinearOpMode {
+
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="wait_then_park", group="Pushbot")
+public class wait_then_park extends LinearOpMode {
     /* Declare OpMode members. */
     HardwareQuadbot robot = new HardwareQuadbot();   //Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
@@ -27,7 +28,6 @@ public class park_blue extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-
         //Initialize the drive system variables. The init() method of the hardware class does all the work here
         robot.init(hardwareMap);
         robot.RearRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -40,13 +40,13 @@ public class park_blue extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        /*//Step 1: Wait 15 seconds before starting.
+        //Step 1: Wait 15 seconds before starting.
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 15)) {
             telemetry.addData("Path", "Part One: Waiting 15 seconds before starting");
             telemetry.update();
         }
-        */
+
         // Step 2: Drive forward.
         robot.FrontLeft.setPower(-FORWARD_SPEED);
         robot.FrontRight.setPower(-FORWARD_SPEED);
@@ -54,95 +54,18 @@ public class park_blue extends LinearOpMode {
         robot.RearRight.setPower(-FORWARD_SPEED_ENCODER);
 
         rearRight_pos = -(robot.RearRight.getCurrentPosition());
-        while (opModeIsActive() && rearRight_pos < whiteLine*.8) {
+        while (opModeIsActive() && rearRight_pos < whiteLine) {
             rearRight_pos = -(robot.RearRight.getCurrentPosition());
             telemetry.addData("Path", "Part Two: Parking one the line.");
             telemetry.addData("Encoder", String.format("%f", rearRight_pos));
             telemetry.update();
+
+            robot.FrontLeft.setPower(0);
+            robot.FrontRight.setPower(0);
+            robot.RearLeft.setPower(0);
+            robot.RearRight.setPower(0);
         }
-        // Step 2: Strafing
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(FORWARD_SPEED);
-        robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.2)) {
-            telemetry.addData("Path", "Strafing left", runtime.seconds());
-            telemetry.update();
-
-        }
-        // Step 2:  Stop.
-        robot.FrontLeft.setPower(0);
-        robot.FrontRight.setPower(0);
-        robot.RearLeft.setPower(0);
-        robot.RearRight.setPower(0);
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(1000);
-
-
-        runtime.reset();
-        robot.DiscShooter.setPower(1);
-        while (opModeIsActive() && (runtime.seconds() < 2)) {
-            telemetry.addData("Path", "Starting up shooter");
-        }
-        runtime.reset();
-        robot.Tread.setPower(.4);
-        while (opModeIsActive() && (runtime.seconds() < .75)) {
-            telemetry.addData("Path", "Shooting");
-        }
-
-        robot.Tread.setPower(0);
-
-        // Step 5: Turn
-        robot.FrontLeft.setPower(FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
-        robot.RearLeft.setPower(FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .2)) {
-            telemetry.addData("Path", "Part Five: Starter Stack 0- Turning towards target zone A. ", runtime.seconds());
-            telemetry.update();
-        }
-        robot.FrontLeft.setPower(0);
-        robot.FrontRight.setPower(0);
-        robot.RearLeft.setPower(0);
-        robot.RearRight.setPower(0);
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(1000);
-        //move tread again
-        runtime.reset();
-        robot.Tread.setPower(.4);
-        while (opModeIsActive() && (runtime.seconds() < .75)) {
-            telemetry.addData("Path", "Shooting");
-            telemetry.update();
-        }
-        robot.Tread.setPower(0);
-        robot.DiscShooter.setPower(0);
-
-        //park
-        robot.FrontLeft.setPower(-FORWARD_SPEED);
-        robot.FrontRight.setPower(-FORWARD_SPEED);
-        robot.RearLeft.setPower(-FORWARD_SPEED);
-        robot.RearRight.setPower(-FORWARD_SPEED);
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.7)) {
-            telemetry.addData("Path", "parking");
-            telemetry.update();
-        }
-
-        // Step 2:  Stop.
-        robot.FrontLeft.setPower(0);
-        robot.FrontRight.setPower(0);
-        robot.RearLeft.setPower(0);
-        robot.RearRight.setPower(0);
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(1000);
-    }
-}
+    }}
 
 /* Copyright (c) 2017 FIRST. All rights reserved.
  *

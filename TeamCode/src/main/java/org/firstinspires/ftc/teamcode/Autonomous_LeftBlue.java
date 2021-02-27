@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * The code is structured as a LinearOpMode.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous_LeftBlue", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="don't_use2", group="Pushbot")
 //@Disabled
 public class Autonomous_LeftBlue extends LinearOpMode {
     private DistanceSensor sensorRange;
